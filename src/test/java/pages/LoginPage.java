@@ -9,9 +9,11 @@ public class LoginPage {
         private String submitButtonXpath = "//*[@id=\"login-form-submit\"]";
 
     public  void enterUserName(String userName){
+        $(byXpath(userNameInputXpath)).clear();
         $(byXpath(userNameInputXpath)).sendKeys(userName);
 
     }public  void enterPassword(String password){
+        $(byXpath(passwordInputXpath)).clear();
         $(byXpath(passwordInputXpath)).sendKeys(password);
 
     }public  void clickSubmitButton (){
