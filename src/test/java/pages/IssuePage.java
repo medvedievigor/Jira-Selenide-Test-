@@ -8,20 +8,21 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class IssuePage {
     private String inputSummaryXpath = "//*[@id=\"summary\"]";
-    private String inputDescriptionID = "tinymce";
+    private String inputDescriptionID = "description"; //"tinymce";
     private String assignToMeButtonXpath = "//*[@id=\"assign-to-me-trigger\"]";
     private String createButtonXpath = "//*[@id=\"create-issue-submit\"]";
-    private String frameXpath = "//*/div[@class=\"mce-edit-area mce-container mce-panel mce-stack-layout-item mce-first\"]/iframe ";
+    //private String frameXpath = "//*[@id =\"description\"]";
+   // private String frameXpath = "//[@class=\"mce-edit-area mce-container mce-panel mce-stack-layout-item mce-first\"]/iframe ";
 
     public  void enterSummary(String summary){
         $(byXpath(inputSummaryXpath)).sendKeys(summary);
 
     }
-    // Это отняло у меня 3 часа моей жизни...
+    // Это снячало был iframe, потом они его изменили...
     public  void enterDescription(String description){
-           Selenide.switchTo().frame($(byXpath(frameXpath)));
+           //Selenide.switchTo().frame($(byXpath(frameXpath)));
            $(byId(inputDescriptionID)).sendKeys(description);
-           Selenide.switchTo().defaultContent();
+           //Selenide.switchTo().defaultContent();
     }
 
     public void clickAssignToMe(){
